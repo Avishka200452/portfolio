@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio — Next.js + Supabase
 
-## Getting Started
+A bespoke visual designer & content creator portfolio website featuring 3D animated galleries, custom cursor physics, and an interactive admin CMS, built with **Next.js**, **Supabase**, **GSAP**, and **Tailwind CSS**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Quick Setup (5 steps)
+
+### Step 1 — Set up Supabase
+
+1. Go to [supabase.com](https://supabase.com) → create a new project
+2. Go to **SQL Editor** → New Query → paste the entire contents of `supabase/schema.sql` → Run
+3. Go to **Settings → API** → copy your **Project URL** and **anon key**
+
+### Step 2 — Add your keys
+
+Open `.env.local` and replace the placeholders:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_KEY_HERE
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Step 3 — Create your admin account
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. In Supabase → **Authentication → Users → Add User**
+2. Enter your email and password → Create
+3. This is how you'll log into `/admin`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Step 4 — Run locally
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open http://localhost:3000 to see your portfolio.
+Open http://localhost:3000/admin to manage content.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Step 5 — Deploy to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push to GitHub:
+```bash
+git init && git add . && git commit -m "Initial portfolio"
+git remote add origin https://github.com/YOUR_USERNAME/portfolio-v2.git
+git push -u origin main
+```
+2. Go to vercel.com → Import repo → Add the 2 env variables → Deploy
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Customizing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All design tokens are in `app/globals.css`:
+- Change `--accent: #FF5C00` to any color to retheme the whole site
+- Change `--bg: #0a0a0f` to change the background
+
+Edit typewriter words in `components/sections/Hero.js` → `const WORDS = [...]`
+
+## Admin Panel
+
+- `/admin` — Secure authentication and content management
+- Manage Profile & CV, Videos, Still Frames / Photography, Social Campaigns, Branding, Logo Design, and UI/UX projects directly in real-time.

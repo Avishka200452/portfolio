@@ -1,0 +1,17 @@
+.scroll-reveal {
+  /* No margin override — inherit from parent class (e.g. section-title) */
+}
+
+.scroll-reveal-text {
+  display: block;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.sr-word {
+  display: inline-block;
+  /* Words start dim; GSAP animates opacity to 1 on scroll */
+  will-change: opacity, filter;
+}
